@@ -1,0 +1,37 @@
+.head{
+  color: #4f4f4f;
+  background-color: #91d2d2;
+  padding: 24px 16px;
+  margin-top: 0px;
+  margin-bottom: 40px;
+  box-sizing: border-box;
+  text-align: left;
+  border-radius: 12px;
+  width: 100%;
+}
+
+.thread-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* カード間のスペース */
+}
+
+.thread-card{
+  color: #4f4f4f;
+  border: 1.5px solid #91d2d2;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;  
+}
+
+/* ホバーしたときの動き（ふわっと持ち上がる） */
+.thread-card:hover {
+  color: #fff;
+  background-color: #a0d4d4;
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
