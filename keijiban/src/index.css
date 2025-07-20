@@ -1,9 +1,11 @@
+/* スレッド一覧画面 */
+
 .head{
   color: #4f4f4f;
   background-color: #91d2d2;
   padding: 24px 16px;
   margin-top: 0px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   box-sizing: border-box;
   text-align: left;
   border-radius: 12px;
@@ -18,7 +20,7 @@
   gap: 12px; /* カード間のスペース */
 }
 
-.thread-card{
+.thread-card {
   color: #4f4f4f;
   border: 1.5px solid #91d2d2;
   border-radius: 8px;
@@ -34,4 +36,84 @@
   background-color: #a0d4d4;
   transform: translateY(-4px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* リンク部分（レイアウト制御のみ） */
+.thread-card a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.create-thread-button {
+  display: inline-block;
+  text-decoration: none;
+  color: #4f4f4f;
+  border: 1.5px solid #91d2d2;
+  border-radius: 20px;
+  padding: 12px;
+  background-color: #fff;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;  
+}
+
+/* ホバーしたときの動き（ふわっと持ち上がる） */
+.create-thread-button:hover {
+  color: #fff;
+  background-color: #a0d4d4;
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 各コンポーネントで共通のスタイル */
+.font-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.page-title{
+  color: #4f4f4f;
+  background-color: #91d2d2;
+  padding: 24px 16px;
+  margin-top: 0px;
+  margin-bottom: 40px;
+  box-sizing: border-box;
+  text-align: left;
+  border-radius: 12px;
+  width: 100%;
+}
+
+/* NewThreadのスタイル */
+.NT-form-row{
+  display: flex;
+  flex-direction: row;
+  gap: 1px;
+}
+
+.NT-input-title{
+  border: 2px solid #888888;
+  border-radius: 8px;
+  padding: 10px;
+  margin-right: 5px;
+}
+
+.NT-create-button{
+  color: #4f4f4f;
+  border: 2px solid #888888;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #fff;
+
+}
+
+/* ThreadPageのスタイル */
+.TP-response {
+  color: #4f4f4f;
+  border: 1.5px solid #91d2d2;
+  border-radius: 20px;
+  padding: 16px;
+  background-color: #fff;
 }

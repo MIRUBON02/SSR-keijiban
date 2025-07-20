@@ -20,15 +20,18 @@ export const NewThread = () => {
     };
 
     return(
-       <div>
-      <h2>スレッドを新規作成</h2>
-      <input
-        type="text"
-        placeholder="スレッドタイトル"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <button onClick={handleSubmit}>作成</button>
-    </div> 
+      <div className="font-container">
+        <h2 className="page-title">スレッドを新規作成</h2>
+        <div className="NT-form-row">
+          <input
+            type="text"
+            placeholder="スレッドタイトル"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="NT-input-title"
+            />
+          <button onClick={handleSubmit} className="NT-create-button">作成</button>
+        </div>
+      </div> 
     );
 };
