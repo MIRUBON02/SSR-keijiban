@@ -6,29 +6,67 @@ export const ThreadPage = () => {
   const location = useLocation();
   const titleFromState = location.state?.title;
   const[posts, setPosts] = useState([]);
+  const[newPost, setNewPost] = useState("");
 
-  useEffect(() =>{
-    const fetchPosts = async() => {
+  const fetchPosts = async() => {
       try{
         const res = await fetch(`https://railway.bulletinboard.techtrain.dev/threads/${thread_id}/posts`);
         const data = await res.json();
-        console.log("取得した data.posts:", data.posts); 
         setPosts(data.posts);
 
       }catch(error){
-        console.error("投稿に失敗したよ。ごめんね:",error);
-        alert("投稿に失敗したよ。もう1度投稿して(´;ω;｀)");
+        console.error("投稿の取得失敗:",error);
+        alert("投稿の取得に失敗したよ。ごめんね(´;ω;｀)");
       }
     };
-      fetchPosts();
-    
+   
+  useEffect(()=>{
+    fetchPosts();
   },[thread_id]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if(!newPost.trim()){
+        alert("投稿内容を入力してね('ω')");
+        return;
+    }
+     try{
+    await fetch(`https://railway.bulletinboard.techtrain.dev/threads/${thread_id}/posts`,{
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({
+            threadId: thread_id,
+            post: newPost
+        })
+    });
+
+    setNewPost("");
+    fetchPosts();
+  }catch(error){
+    alert("投稿に失敗したよ(´；ω；｀)");
+    console.error(error);
+  }
+};
 
   return(
    <div className="font-container">
       <h2 className="page-title">
         {titleFromState ??"読み込み中..."}
       </h2>
+
+      {/* 投稿フォーム */}
+        <form onSubmit={handleSubmit} className="TP-form-row">
+         <input
+           type="text"
+           value={newPost}
+           onChange={(e)=>setNewPost(e.target.value)}
+           placeholder="投稿内容を入力"
+           className="TP-input"
+         />
+         <button type="submit" className="TP-post-button">投稿( •̀ ω •́ )y</button>
+        </form>
+
+      {/* 投稿一覧 */}
       {posts.length === 0 ? (
         <p>投稿がまだありません。</p>
       ) : (

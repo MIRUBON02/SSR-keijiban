@@ -117,3 +117,12 @@
   padding: 16px;
   background-color: #fff;
 }
+
+/* 投稿内容入力フォームのスタイル */
+.TP-form-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+
+}
