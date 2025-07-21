@@ -54,30 +54,37 @@ export const ThreadPage = () => {
         {titleFromState ??"読み込み中..."}
       </h2>
 
+      {/* 投稿一覧 */}
+      <div className="thread-body">
+        <div className="post-list">
+          {posts.length === 0 ? (
+            <p>投稿がまだありません。</p>
+          ) : (
+          <ul className="thread-list">
+            {posts.map((post) => (
+              <li key={post.id} className="TP-response">
+                {post.post}
+              </li>
+            ))}
+          </ul>
+          )}
+        </div>
+        
+
+
       {/* 投稿フォーム */}
-        <form onSubmit={handleSubmit} className="TP-form-row">
+        <form onSubmit={handleSubmit} className="TP-form">
+         <p className="form-title">コメントしてみよう！</p>
          <input
            type="text"
            value={newPost}
            onChange={(e)=>setNewPost(e.target.value)}
-           placeholder="投稿内容を入力"
+           placeholder="コメントを入力"
            className="TP-input"
          />
          <button type="submit" className="TP-post-button">投稿( •̀ ω •́ )y</button>
         </form>
-
-      {/* 投稿一覧 */}
-      {posts.length === 0 ? (
-        <p>投稿がまだありません。</p>
-      ) : (
-        <ul className="thread-list">
-          {posts.map((post) => (
-            <li key={post.id} className="TP-response">
-              {post.post}
-            </li>
-          ))}
-        </ul>
-      )}
+      </div>
     </div> 
   );
 };
