@@ -1,0 +1,50 @@
+{
+  "name": "keijiban",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build:client": "vite build",
+    "build:ssr": "vite build --ssr src/main.server.jsx --outDir dist/ssr",
+    "build:node": "swc server/index.js -o dist/server/index.js --source-maps",
+    "build": "npm run build:client && npm run build:ssr && npm run build:node",
+    "watch:client": "vite build -w",
+    "watch:ssr": "vite build --ssr src/main.server.jsx --outDir dist/ssr -w",
+    "serve:dev": "nodemon",
+    "dev": "concurrently -k -n CLIENT,SSR,NODE \"npm:watch:client\" \"npm:watch:ssr\" \"npm:serve:dev\"",
+    "start": "node dist/node/index.js",
+    "lint": "eslint .",
+    "build:client:swc": "swc src -o dist/client/swc/index.js --config-file=swc.client.config.json",
+    "build:server:swc": "swc server -o dist/server/swc/index.js --config-file=swc.server.config.json",
+    "build:swc": "npm run build:client:swc && npm run build:server:swc",
+    "start:swc": "node dist/server/swc/index.js",
+    "dev:swc": "nodemon dist/server/swc/index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router": "^7.8.2",
+    "react-router-dom": "^7.8.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.30.1",
+    "@swc/cli": "^0.7.8",
+    "@swc/core": "^1.13.5",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react-swc": "^3.11.0",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.30.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "nodemon": "^3.1.10",
+    "vite": "^7.1.4"
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,6 @@
+{
+  "jsc": { "parser": { "syntax": "ecmascript" }, "target": "es2019" },
+  "module": { "type": "es6" },
+  "minify": false,
+  "sourceMaps": true
+}

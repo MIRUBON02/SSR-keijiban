@@ -1,0 +1,6 @@
+{
+  "watch": ["src", "server"],
+  "ext": "js,jsx,json",
+  "ignore": ["dist"],
+  "exec": "npm run build:node && node dist/node/index.js"
+}
