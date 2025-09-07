@@ -2,5 +2,5 @@
   "watch": ["src", "server"],
   "ext": "js,jsx,json",
   "ignore": ["dist"],
-  "exec": "npm run build:node && node dist/node/index.js"
+  "exec": "npm run build:node && node dist/server/ssr/index.js"
 }

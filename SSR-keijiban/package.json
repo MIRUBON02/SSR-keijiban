@@ -6,13 +6,14 @@
   "scripts": {
     "build:client": "vite build",
     "build:ssr": "vite build --ssr src/main.server.jsx --outDir dist/ssr",
-    "build:node": "swc server/index.js -o dist/server/index.js --source-maps",
-    "build": "npm run build:client && npm run build:ssr && npm run build:node",
+    "build:appserver": "swc src/App.server.jsx -o dist/src/App.server.js --config-file=swc.appserver.config.json",
+    "build:node": "swc server/index.js -o dist/server/ssr/index.js --source-maps",
+    "build": "npm run build:client && npm run build:ssr && npm run build:appserver && npm run build:node",
     "watch:client": "vite build -w",
     "watch:ssr": "vite build --ssr src/main.server.jsx --outDir dist/ssr -w",
     "serve:dev": "nodemon",
     "dev": "concurrently -k -n CLIENT,SSR,NODE \"npm:watch:client\" \"npm:watch:ssr\" \"npm:serve:dev\"",
-    "start": "node dist/node/index.js",
+    "start": "node dist/server/ssr/index.js",
     "lint": "eslint .",
     "build:client:swc": "swc src -o dist/client/swc/index.js --config-file=swc.client.config.json",
     "build:server:swc": "swc server -o dist/server/swc/index.js --config-file=swc.server.config.json",
@@ -28,6 +29,7 @@
     "react-router-dom": "^7.8.2"
   },
   "devDependencies": {
+    "@babel/register": "^7.28.3",
     "@eslint/js": "^9.30.1",
     "@swc/cli": "^0.7.8",
     "@swc/core": "^1.13.5",
