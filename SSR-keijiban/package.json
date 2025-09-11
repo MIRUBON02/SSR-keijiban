@@ -15,13 +15,14 @@
     "start": "node dist/node/index.js",
     "lint": "eslint .",
     "build:client:swc": "swc src -o dist/client/swc/index.js --config-file=swc.client.config.json",
-    "build:server:swc": "swc server -o dist/server/swc/index.js --config-file=swc.server.config.json",
+    "build:server:swc": "swc server -d dist/server/swc/index.js --config-file=swc.server.config.json",
     "build:swc": "npm run build:client:swc && npm run build:server:swc",
     "start:swc": "node dist/server/swc/index.js",
     "dev:swc": "nodemon dist/server/swc/index.js"
   },
   "dependencies": {
     "express": "^4.21.2",
+    "node-fetch": "^3.3.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router": "^7.8.2",
