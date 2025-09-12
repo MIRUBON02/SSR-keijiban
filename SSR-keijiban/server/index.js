@@ -8,8 +8,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-
-// dist/client配下を静的配信
 const clientDir = path.join(__dirname, "../client");
 app.use(express.static(clientDir));
 app.get("/", (req, res) => {

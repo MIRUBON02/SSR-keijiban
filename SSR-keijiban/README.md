@@ -1,10 +1,3 @@
-## 本番用 SSR サーバーの起動方法
-
-1. `npm run build` で全体をビルド
-2. `node dist/server/ssr/index.js` で SSR サーバーを起動
-
-これで安定して SSR・CSS 配信が可能です。
-
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
