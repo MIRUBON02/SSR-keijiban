@@ -1,4 +1,4 @@
-import { StaticRouter } from "react-router";
+import { StaticRouter } from "react-router-dom/server";
 import { renderToString } from "react-dom/server";
 import "./index.css";
 import { AppRoutes } from "./Router";

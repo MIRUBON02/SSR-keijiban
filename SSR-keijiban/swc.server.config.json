@@ -1,7 +1,8 @@
 {
   "jsc": {
     "parser": {
-      "syntax": "ecmascript"
+      "syntax": "ecmascript",
+      "jsx": true
     },
     "target": "es2015"
   },
