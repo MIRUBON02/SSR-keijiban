@@ -30,6 +30,7 @@ async function createServer() {
   </head>
   <body>
     <div id="root"><!--app-html--></div>
+    <script type="module" src="/src/main.client.jsx"></script>
   </body>
 </html>`
       );
