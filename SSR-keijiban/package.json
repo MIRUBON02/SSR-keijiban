@@ -6,7 +6,7 @@
   "scripts": {
     "dev:ssr": "node server/vite-ssr-server.js",
     "build:ssr": "vite build --ssr src/entry-server.jsx",
-    "start:ssr": "NODE_ENV=production node server/vite-ssr-server.js"
+    "start:ssr": "set NODE_ENV=production && node server/vite-ssr-server.js"
   },
   "dependencies": {
     "express": "^4.21.2",

@@ -1,11 +1,6 @@
 import express from "express";
 import { createServer as createViteServer } from "vite";
-import path from "path";
-import { fileURLToPath } from "url";
 import { renderToString } from "react-dom/server";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 async function createServer() {
   const app = express();
@@ -26,7 +21,7 @@ async function createServer() {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SSR掲示板</title>
-    <link rel="stylesheet" href="/src/index.css" />
+     <!-- ViteがCSSを自動で挿入 -->
   </head>
   <body>
     <div id="root"><!--app-html--></div>
