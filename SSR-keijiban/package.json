@@ -6,13 +6,12 @@
   "scripts": {
     "dev:ssr": "node server/vite-ssr-server.js",
     "build:ssr": "vite build --ssr src/entry-server.jsx",
-    "start:ssr": "NODE_ENV=production node server/vite-ssr-server.js"
+    "start:ssr": "cross-env NODE_ENV=production node server/vite-ssr-server.js"
   },
   "dependencies": {
     "express": "^4.21.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router": "^6.22.3",
     "react-router-dom": "^6.22.3"
   },
   "devDependencies": {
@@ -21,8 +20,9 @@
     "@swc/core": "^1.13.5",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
-    "@vitejs/plugin-react-swc": "^3.11.0",
+  "@vitejs/plugin-react": "^4.2.0",
     "concurrently": "^9.2.1",
+    "cross-env": "^10.0.0",
     "eslint": "^9.30.1",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
