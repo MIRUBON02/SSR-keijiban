@@ -4,12 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-  "build:client": "vite build",
-  "build:server": "swc server -d dist --config-file=swc.server.config.json",
-  "build:appserver": "swc src -d dist --config-file=swc.appserver.config.json",
-  "build": "npm run build:client && npm run build:server && npm run build:appserver",
-  "start": "node dist/server/index.js",
-  "dev": "nodemon --watch server --ext js,jsx --exec \"npm run build:server && node dist/server/index.js\""
+    "build:client": "vite build",
+    "build:server": "swc server -d dist --config-file=swc.server.config.json",
+    "build:appserver": "swc src -d dist --config-file=swc.appserver.config.json",
+    "build": "npm run build:client && npm run build:server && npm run build:appserver",
+    "start": "node dist/server/index.js",
+    "dev": "nodemon --watch server --ext js,jsx --exec \"npm run build:server && node dist/server/index.js\""
   },
   "dependencies": {
     "express": "^4.21.2",
@@ -24,6 +24,7 @@
     "@swc/core": "^1.13.5",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^5.0.2",
     "@vitejs/plugin-react-swc": "^3.11.0",
     "concurrently": "^9.2.1",
     "eslint": "^9.30.1",
