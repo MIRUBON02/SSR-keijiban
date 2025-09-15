@@ -1,6 +1,5 @@
 import React from "react";
 import { ThreadList } from "./pages/ThreadList";
-import { Counter } from "./pages/Counter";
 import { StaticRouter } from "react-router-dom/server";
 
 export default async function App() {
@@ -12,7 +11,6 @@ export default async function App() {
   // SSR時はStaticRouterでラップ
   return (
     <StaticRouter location="/">
-      <Counter />
       <ThreadList threads={threads} />
     </StaticRouter>
   );
